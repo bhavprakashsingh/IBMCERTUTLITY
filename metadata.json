@@ -1,0 +1,5 @@
+{
+  "name": "IBMSRE-CertMaster - SSL/TLS Toolkit",
+  "description": "A comprehensive SSL/TLS certificate analyzer, chain verifier, and key pinning utility powered by local crypto engine.",
+  "requestFramePermissions": []
+}
