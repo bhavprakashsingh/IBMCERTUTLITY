@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Download, Globe, AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
+import API_ENDPOINTS from '../config';
 
 interface ChainFetcherProps {
   onChainFetched: (pemChain: string) => void;
@@ -40,7 +41,7 @@ export default function ChainFetcher({ onChainFetched }: ChainFetcherProps) {
     setResult(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/fetch-chain', {
+      const response = await fetch(API_ENDPOINTS.FETCH_CHAIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

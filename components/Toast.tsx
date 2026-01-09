@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { CheckCircle2, X, AlertCircle, Info } from 'lucide-react';
+import { generateUUID } from '../utils/uuid';
 
 export interface ToastProps {
   message: string;
@@ -52,7 +53,7 @@ export const useToast = () => {
   const [toasts, setToasts] = React.useState<Array<{ id: string; message: string; type: 'success' | 'error' | 'info' }>>([]);
 
   const showToast = (message: string, type: 'success' | 'error' | 'info' = 'success') => {
-    const id = crypto.randomUUID();
+    const id = generateUUID();
     setToasts(prev => [...prev, { id, message, type }]);
   };
 

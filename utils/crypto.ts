@@ -1,6 +1,7 @@
 // @ts-ignore
 import forge from 'https://esm.sh/node-forge@1.3.1';
 import { CertInfo } from '../types';
+import { generateUUID } from './uuid';
 
 export const parseCertificateChain = (pem: string): CertInfo[] => {
   const certs: CertInfo[] = [];
@@ -120,7 +121,7 @@ export const parseCertificateChain = (pem: string): CertInfo[] => {
       // But typically Last = Root if self-signed.
       
       certs.push({
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         subject,
         issuer,
         serialNumber: cert.serialNumber,

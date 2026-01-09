@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { CertInfo } from '../types';
 import { parseCertificateChain, verifyChainLocally } from '../utils/crypto';
 import { useToast } from './Toast';
+import API_ENDPOINTS from '../config';
 import {
   ShieldCheck,
   ShieldAlert,
@@ -29,7 +30,7 @@ export const CertLab: React.FC = () => {
 
   const testBackendConnection = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:3001/health');
+      const response = await fetch(API_ENDPOINTS.HEALTH);
       const data = await response.json();
       if (response.ok) {
         showToast(`✅ Backend connected: ${data.message}`, 'success');
@@ -52,7 +53,7 @@ export const CertLab: React.FC = () => {
     
     try {
       console.log('Sending request to backend...');
-      const response = await fetch('http://localhost:3001/api/fetch-issuer-chain', {
+      const response = await fetch(API_ENDPOINTS.FETCH_ISSUER_CHAIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

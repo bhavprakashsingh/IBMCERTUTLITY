@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { DomainInfo } from '../types';
 import { useToast } from './Toast';
+import API_ENDPOINTS from '../config';
 import {
   Globe,
   Search,
@@ -37,7 +38,7 @@ export const DomainIntel: React.FC = () => {
     setDomainInfo(null);
 
     try {
-      const response = await fetch('http://localhost:3001/api/domain-info', {
+      const response = await fetch(API_ENDPOINTS.DOMAIN_INFO, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +95,7 @@ export const DomainIntel: React.FC = () => {
     if (!domainInfo?.certificate) return;
     
     try {
-      const response = await fetch('http://localhost:3001/api/fetch-chain', {
+      const response = await fetch(API_ENDPOINTS.FETCH_CHAIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

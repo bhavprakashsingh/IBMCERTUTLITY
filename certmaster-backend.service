@@ -1,0 +1,19 @@
+[Unit]
+Description=CertMaster Backend API
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/certmaster
+ExecStart=/usr/bin/node /home/ubuntu/certmaster/server.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=certmaster-backend
+Environment=NODE_ENV=production
+Environment=PORT=3001
+
+[Install]
+WantedBy=multi-user.target
