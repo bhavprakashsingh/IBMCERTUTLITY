@@ -15,7 +15,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-APP_DIR="/home/ubuntu/certmaster"
+APP_DIR="/home/ubuntu/IBMcert/new/IBMCERTUTLITY"
 NGINX_CONF="/etc/nginx/sites-available/certmaster"
 NGINX_ENABLED="/etc/nginx/sites-enabled/certmaster"
 DOMAIN="ibmcertlab.cops.webmethods.io"
